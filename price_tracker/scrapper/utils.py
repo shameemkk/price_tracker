@@ -102,7 +102,7 @@ def fetch_ai_analysis(data):
     response = requests.post(
     url="https://openrouter.ai/api/v1/chat/completions",
     headers={
-        "Authorization": "Bearer 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",
+        "Authorization": "Bearer <API_KEY>",
         "Content-Type": "application/json",
 
     },
