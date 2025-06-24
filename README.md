@@ -3,7 +3,7 @@
 A Django-based web application for tracking product prices across different e-commerce websites. The system uses AI-powered price extraction and maintains a database of price selectors for efficient scraping.
 ![flow](flow.png)
 
-## Key Features
+## Key Features 
 
 - **Dynamic Price Extraction**: Automatically identifies price elements on any e-commerce website
 - **AI-Powered Selector Detection**: Uses DeepSeek API for intelligent price element identification
@@ -22,8 +22,9 @@ class PriceSelector(models.Model):
     css_selector = models.CharField(max_length=100, choices=[('id', 'id'), ('class', 'class')])
     value = models.CharField(max_length=100)
 ```
+## celery task [View tasks.py]([https://github.com/shameemkk/price_tracker/blob/main/price_tracker/scrapper/tasks.py]
 
-### Utility Functions
+### Utility Functions [View utils.py]([https://github.com/shameemkk/price_tracker/blob/main/price_tracker/scrapper/utils.py]
 
 - `fetch_clean_html()`: Uses Selenium for dynamic content loading and cleaning
 - `extract_domain_from_url()`: Extracts base domain for selector caching
