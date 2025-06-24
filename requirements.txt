@@ -1,0 +1,7 @@
+Django>=4.0
+celery
+redis
+selenium
+webdriver_manager
+tldextract
+bs4
