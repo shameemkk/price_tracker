@@ -123,3 +123,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Celery Configuration
+CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Redis as broker
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'  # Store task results in Redis
+# Recommended Redis settings for reliability
+CELERY_BROKER_TRANSPORT_OPTIONS = {
+    'visibility_timeout': 3600,  # 1 hour
+    'socket_connect_timeout': 10,  # 10 seconds
+    'socket_timeout': 10,  # 10 seconds
+    'retry_on_timeout': True,
+}
+CELERY_RESULT_EXPIRES = 3600  # Task results expire in 1 hour

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Fetch Clean HTML{% endblock %}
+
+{% block content %}
+    <h1>Fetched Price</h1>
+    {% if tasks %}
+        <h3 class="mt-4">Your Recent Tasks</h3>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Status</th>
+                    <th>Requested At</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in tasks %}
+                <tr>
+                    <td>{{ t.id }}</td>
+                    <td>{{ t.status|title }}</td>
+                    <td>{{ t.created_at }}</td>
+                    <td>
+                        {% if t.result %}
+                            <pre style="max-width:300px; max-height:100px; overflow:auto; white-space:pre-wrap; word-break:break-all;">{{ t.result|truncatechars:200|escape }}</pre>
+                        {% else %}
+                            <span class="text-muted">No result</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    <div class="mt-4">
+        <a href="{% url 'index' %}" class="btn btn-primary">Back to Home</a>
+    </div>
+
+    
+{% endblock %}
