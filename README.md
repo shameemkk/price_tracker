@@ -22,7 +22,8 @@ class PriceSelector(models.Model):
     css_selector = models.CharField(max_length=100, choices=[('id', 'id'), ('class', 'class')])
     value = models.CharField(max_length=100)
 ```
-## celery task [View tasks.py]([https://github.com/shameemkk/price_tracker/blob/main/price_tracker/scrapper/tasks.py]
+## celery task 
+[View tasks.py]([https://github.com/shameemkk/price_tracker/blob/main/price_tracker/scrapper/tasks.py]
 
 ### Utility Functions 
 -[View utils.py]([https://github.com/shameemkk/price_tracker/blob/main/price_tracker/scrapper/utils.py]
