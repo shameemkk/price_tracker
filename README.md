@@ -24,7 +24,8 @@ class PriceSelector(models.Model):
 ```
 ## celery task [View tasks.py]([https://github.com/shameemkk/price_tracker/blob/main/price_tracker/scrapper/tasks.py]
 
-### Utility Functions ![View utils.py]([https://github.com/shameemkk/price_tracker/blob/main/price_tracker/scrapper/utils.py]
+### Utility Functions 
+-[View utils.py]([https://github.com/shameemkk/price_tracker/blob/main/price_tracker/scrapper/utils.py]
 
 - `fetch_clean_html()`: Uses Selenium for dynamic content loading and cleaning
 - `extract_domain_from_url()`: Extracts base domain for selector caching
