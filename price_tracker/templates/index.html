@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block title %}Home | Price Tracker{% endblock %}
+    {% block content %}
+        <div class="text-center mt-5">
+            <h1>Welcome to Price Tracker</h1>
+            <p class="lead">Track your favorite products and get notified when prices drop!</p>
+            <form method="post" action="{% url 'fetch' %}">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="url" name="url" class="form-control" placeholder="Enter URL to fetch clean HTML" required>
+                <button class="btn btn-primary" type="submit">Fetch</button>
+            </div>
+        </form>
+            {% if user.is_authenticated %}
+                <a href="#" class="btn btn-success">Start Tracking</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+                <a href="{% url 'signUp' %}" class="btn btn-outline-primary ms-2">Sign Up</a>
+            {% endif %}
+        </div>
+    {% endblock %}
+</body>
+</html>
